@@ -20,7 +20,7 @@ public class HomeWork001 {
         return 1;
     }
 
-    public static ArrayList SimpleNum(int a) {
+    public static ArrayList <Integer> SimpleNum(int a) {
         ArrayList<Integer> list_result = new ArrayList<Integer>();
         int count = 1;
         list_result.add(count);
@@ -59,6 +59,7 @@ public class HomeWork001 {
                 c = EnterCommands(oper, a, b);
             }
             System.out.println("Ответ: " + c);
+            sc.close();
         }
         catch(Exception ex){
             System.out.println("Ошибка! Вводите числа!");
