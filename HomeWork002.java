@@ -38,12 +38,8 @@ public class HomeWork002 {
                 }
                 sb = new StringBuilder();
             }
-            if(flag){
-                sb.append(charArr[i]);
-            }
-            if (charArr[i] == ':'){
-                flag = true;
-            }
+            if (flag) sb.append(charArr[i]);
+            if (charArr[i] == ':') flag = true;
         }
         return arrList;
     }
