@@ -17,6 +17,11 @@ public class HomeWork002 {
         String path = "input.txt";
         OutConsole(ParseString(ReaderString(path)));
         OutFile(ParseString(ReaderString(path)));
+        // -----------------------------------------
+        int [] arr = {3,6,7,1,32,7,2,46,13,34,78};
+        System.out.println(OutArray(arr));
+        BubbleSorter(arr);
+        System.out.println(OutArray(arr));
     }
     public static ArrayList<ArrayList> ParseString(String str) {
         str = str.replaceAll("\"", "").replaceAll("}", "");
@@ -77,7 +82,7 @@ public class HomeWork002 {
     public static void Log(String mess) { // От вопросов в лог-файле так и не получилось избавиться х(
         FileHandler fileHandler = null;
         try {
-            fileHandler = new FileHandler("log.txt");
+            fileHandler = new FileHandler("log.txt", true);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -87,5 +92,26 @@ public class HomeWork002 {
         logger.addHandler(fileHandler);
         logger.log(Level.INFO, mess);
         fileHandler.close();
+    }
+    public static void BubbleSorter(int [] arr){
+        Log("Start sorting");
+        for (int i = arr.length - 1; i >= 1; i--){
+            for (int j = 0; j < i; j++){
+                if(arr[j] > arr[j + 1]){
+                    Log(arr[j] + ">" + arr[j+1]);
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+        Log("Stop sorting");
+    }
+    public static String OutArray(int [] arr) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < arr.length; i++) {
+            sb.append(arr[i]+ " ");
+        }
+        return sb.toString();
     }
 }
