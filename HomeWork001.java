@@ -5,22 +5,22 @@ import java.util.Scanner;
 
 public class HomeWork001 {
     public static void main(String[] args) {
-        System.out.println(TriangNumber(8)); // Task 1.1
-        System.out.println(Fact(5)); // Task 1.2
-        System.out.println(SimpleNum(1000)); // Task 1.3
-        CalcMain(); // Task 1.4
+        System.out.println(triangNumber(8)); // Task 1.1
+        System.out.println(fact(5)); // Task 1.2
+        System.out.println(simpleNum(1000)); // Task 1.3
+        calcMain(); // Task 1.4
     }
 
-    public static int TriangNumber(int a) {
+    public static int triangNumber(int a) {
         return a*(a+1)/2;
     }
 
-    public static int Fact(int a) {
-        if (a>1) return Fact(a-1)*a;
+    public static int fact(int a) {
+        if (a>1) return fact(a-1)*a;
         return 1;
     }
 
-    public static ArrayList <Integer> SimpleNum(int a) {
+    public static ArrayList <Integer> simpleNum(int a) {
         ArrayList<Integer> list_result = new ArrayList<Integer>();
         int count = 1;
         list_result.add(count);
@@ -37,7 +37,7 @@ public class HomeWork001 {
         return list_result;
     }
 
-    public static void CalcMain() {
+    public static void calcMain() {
         Scanner sc = new Scanner(System.in);
         try {
             System.out.println("Введите первое число: ");
@@ -46,7 +46,7 @@ public class HomeWork001 {
             double b = sc.nextInt();
             System.out.println("Введите команду: ");
             String oper = sc.next();
-            Double c = EnterCommands(oper, a, b);
+            Double c = enterCommands(oper, a, b);
             while (c == null){
                 System.out.println("Комманды: \n"+
                                     "add - сложение\n"+
@@ -56,7 +56,7 @@ public class HomeWork001 {
                                     "rem  - остаток\n");
                 System.out.println("Введите команду: ");
                 oper = sc.next();
-                c = EnterCommands(oper, a, b);
+                c = enterCommands(oper, a, b);
             }
             System.out.println("Ответ: " + c);
             sc.close();
@@ -66,7 +66,7 @@ public class HomeWork001 {
         }
     }
 
-    public static Double EnterCommands(String oper, double a, double b) {
+    public static Double enterCommands(String oper, double a, double b) {
         switch (oper) {
             case "add": return a+b;
             case "sub": return a-b;
