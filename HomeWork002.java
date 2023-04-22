@@ -15,15 +15,15 @@ import java.util.logging.SimpleFormatter;
 public class HomeWork002 {
     public static void main(String[] args) {
         String path = "input.txt";
-        OutConsole(ParseString(ReaderString(path)));
-        OutFile(ParseString(ReaderString(path)));
+        outConsole(parseString(readerString(path)));
+        outFile(parseString(readerString(path)));
         // -----------------------------------------
         int [] arr = {3,6,7,1,32,7,2,46,13,34,78};
-        System.out.println(OutArray(arr));
-        BubbleSorter(arr);
-        System.out.println(OutArray(arr));
+        System.out.println(outArray(arr));
+        bubbleSorter(arr);
+        System.out.println(outArray(arr));
     }
-    public static ArrayList<ArrayList> ParseString(String str) {
+    public static ArrayList<ArrayList> parseString(String str) {
         str = str.replaceAll("\"", "").replaceAll("}", "");
         char [] charArr = str.toCharArray();
         StringBuilder sb = new StringBuilder();
@@ -48,23 +48,23 @@ public class HomeWork002 {
         }
         return arrList;
     }
-    public static String ReaderString(String path) {
+    public static String readerString(String path) {
         File file = new File(path);
         try (BufferedReader br =new BufferedReader(new FileReader(file,StandardCharsets.UTF_8))) {
             return br.readLine();
         } catch (Exception e) {
             e.printStackTrace();
-            Log("Error reader");
+            log("Error reader");
             return "";
         }
     }
-    public static void OutConsole(ArrayList<ArrayList> ArrStr) {
+    public static void outConsole(ArrayList<ArrayList> ArrStr) {
         for (ArrayList <String> arrayList : ArrStr) {
             System.out.println("Студент "+ arrayList.get(0) +
               " получил "+ arrayList.get(1) +  " по предмету "+ arrayList.get(2) +  ".");
         }
     }
-    public static void OutFile(ArrayList<ArrayList> ArrStr) {
+    public static void outFile(ArrayList<ArrayList> ArrStr) {
 
         String path = "output.txt";
         try (FileWriter fileWriter = new FileWriter(path, StandardCharsets.UTF_8)) {
@@ -76,10 +76,10 @@ public class HomeWork002 {
             fileWriter.flush();
         } catch (Exception e) {
             e.printStackTrace();
-            Log("Error writer");
+            log("Error writer");
         }
     }
-    public static void Log(String mess) { // От вопросов в лог-файле так и не получилось избавиться х(
+    public static void log(String mess) { // От вопросов в лог-файле так и не получилось избавиться х(
         FileHandler fileHandler = null;
         try {
             fileHandler = new FileHandler("log.txt", true);
@@ -93,21 +93,21 @@ public class HomeWork002 {
         logger.log(Level.INFO, mess);
         fileHandler.close();
     }
-    public static void BubbleSorter(int [] arr){
-        Log("Start sorting");
+    public static void bubbleSorter(int [] arr){
+        log("Start sorting");
         for (int i = arr.length - 1; i >= 1; i--){
             for (int j = 0; j < i; j++){
                 if(arr[j] > arr[j + 1]){
-                    Log(arr[j] + ">" + arr[j+1]);
+                    log(arr[j] + ">" + arr[j+1]);
                     int temp = arr[j];
                     arr[j] = arr[j+1];
                     arr[j+1] = temp;
                 }
             }
         }
-        Log("Stop sorting");
+        log("Stop sorting");
     }
-    public static String OutArray(int [] arr) {
+    public static String outArray(int [] arr) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < arr.length; i++) {
             sb.append(arr[i]+ " ");
