@@ -10,6 +10,7 @@ public class HomeWork003 {
         System.out.println(listNum);
         System.out.println("Maximum: " + maxInteger(listNum));
         System.out.println("Minimum: " + minInteger(listNum));
+        System.out.println("Average sum: " + averSum(listNum));
         removeEvenNum(listNum);
         System.out.println(listNum);
     }
@@ -24,6 +25,14 @@ public class HomeWork003 {
 
     public static Integer minInteger(List<Integer> listNum) {
         return Collections.min(listNum);
+    }
+
+    public static Integer averSum(List<Integer> listNum) {
+        int averSum = 0;
+        for (Integer integer : listNum) {
+            averSum += integer;
+        }
+        return averSum /= listNum.size();
     }
 
     static List<Integer> createList(int size, int min, int max){
