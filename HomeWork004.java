@@ -1,5 +1,6 @@
 package HomeWorkGB;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.ListIterator;
@@ -15,7 +16,16 @@ public class HomeWork004 {
             // --------------------------------------
             System.out.println(sum(list1));
 
+            // --------------------------------------
+
+            MyQueue<Integer> myQueue = new MyQueue<>();
+            for (int i = 0; i < 15; i++) {
+                myQueue.enqueue(i);
+            }
+            System.out.println(myQueue);
+
     }
+
     public static int sum(LinkedList <Integer> l) {
         int sum = 0;
         ListIterator listIterator = l.listIterator();
