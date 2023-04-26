@@ -13,8 +13,18 @@ public class HomeWork004 {
             System.out.println(reverseList(list1));
 
             // --------------------------------------
-            
+            System.out.println(sum(list1));
+
     }
+    public static int sum(LinkedList <Integer> l) {
+        int sum = 0;
+        ListIterator listIterator = l.listIterator();
+        while (listIterator.hasNext()) {
+            sum += (int)listIterator.next();
+        }
+        return sum;
+    }
+
     public static LinkedList reverseList(LinkedList l) {
         ListIterator listIterator = l.listIterator(l.size());
         LinkedList revList = new LinkedList<>();
