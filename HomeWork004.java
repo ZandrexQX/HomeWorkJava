@@ -19,9 +19,15 @@ public class HomeWork004 {
             // --------------------------------------
 
             MyQueue<Integer> myQueue = new MyQueue<>();
-            for (int i = 0; i < 15; i++) {
-                myQueue.enqueue(i);
+            for (int i = 0; i < 5; i++) {
+                myQueue.enqueue(i+1);
             }
+            System.out.println(myQueue);
+            System.out.println(myQueue.dequeue());
+            System.out.println(myQueue.dequeue());
+            System.out.println(myQueue);
+            System.out.println(myQueue.first());
+            System.out.println(myQueue.first());
             System.out.println(myQueue);
 
     }

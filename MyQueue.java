@@ -22,4 +22,13 @@ public class MyQueue<T>{
     public T dequeue() {
         return arr.remove(0);
     }
+
+    public T first() {
+        return arr.get(0);
+    }
+
+    @Override
+    public String toString() {
+        return arr.toString();
+    }
 }
