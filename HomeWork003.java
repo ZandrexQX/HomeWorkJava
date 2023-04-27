@@ -61,8 +61,8 @@ public class HomeWork003 {
         return Collections.min(listNum);
     }
 
-    public static Integer averSum(List<Integer> listNum) {
-        int averSum = 0;
+    public static Float averSum(List<Integer> listNum) {
+        Float averSum = 0f;
         for (Integer integer : listNum) {
             averSum += integer;
         }
