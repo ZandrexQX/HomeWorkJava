@@ -21,10 +21,18 @@ public class HomeWork005 {
                         "Марина Светлова", "Мария Савина", "Мария Рыкова", 
                         "Марина Лугова", "Анна Владимирова", "Иван Мечников",
                         "Петр Петин", "Иван Ежов"));
-        
-        sortPeople(peoples);
+        System.out.println();
+        System.out.println("Повторения:");
+        for(Map.Entry<String, Integer> item : sortPeople(peoples).entrySet()){
+            System.out.printf("Имя: %s  Повторения: %s \n", item.getKey(), item.getValue());
+        }
+        System.out.println();
+        System.out.println("Сортировка по убыванию:");
+        for(Map.Entry<Integer, String> item : sortValue(sortPeople(peoples)).entrySet()){
+            System.out.printf(" %s  Имя: %s \n", item.getKey(), item.getValue());
+        }
     }
-    public static void sortPeople(ArrayList<String> p) {
+    public static Map<String, Integer> sortPeople(ArrayList<String> p) {
         Map<String, Integer> names = new TreeMap<String, Integer>();
         for (int i = 0; i < p.size(); i++) {
             String name = p.get(i).split(" ")[0];
@@ -37,11 +45,21 @@ public class HomeWork005 {
             }
             names.put(name, count);
         }
-        for(Map.Entry<String, Integer> item : names.entrySet()){
-            System.out.printf("Name: %s  Count: %s \n", item.getKey(), item.getValue());
-        }
+        return names;
     }
-    public static void name() {
-        
+    public static Map<Integer, String> sortValue(Map<String, Integer> m) {
+        Map<Integer, String> sorted = new TreeMap<Integer, String>();
+        int index = 0;
+        int count = m.size();
+        for(int i = 0; i < m.size();i++){
+            for (Map.Entry<String, Integer> item : m.entrySet()) {
+                if (count == item.getValue()){
+                    sorted.put(index, item.getKey());
+                    index++;
+                }
+            }
+            count--;
+        }
+        return sorted;
     }
 }
