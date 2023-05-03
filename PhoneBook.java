@@ -28,7 +28,9 @@ public class PhoneBook {
             if (item.getKey().equals(name)) {
                 sb.append(item.getKey());
                 sb.append(": ");
-                sb.append(item.getValue());
+                for (Integer i : item.getValue()) {
+                    sb.append(i + " ");
+                }
                 sb.append("\n");
             }
         }

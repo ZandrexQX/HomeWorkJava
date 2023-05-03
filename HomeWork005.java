@@ -7,11 +7,11 @@ import java.util.TreeMap;
 
 public class HomeWork005 {
     public static void main(String[] args) {
-        // PhoneBook pb = new PhoneBook();
-        // pb.add("Alex");
-        // pb.add("Zara");
-        // System.out.println(pb.printNumbers("Alex"));
-        // System.out.println(pb.printNumbers("Zara"));
+        PhoneBook pb = new PhoneBook();
+        pb.add("Alex");
+        pb.add("Zara");
+        System.out.println(pb.printNumbers("Alex"));
+        System.out.println(pb.printNumbers("Zara"));
         //-----------------------------------------------
         ArrayList<String> peoples = 
         new ArrayList<String>
