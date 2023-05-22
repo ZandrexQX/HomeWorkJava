@@ -1,14 +1,14 @@
 package HomeWorkGB;
 
 public class Notebook {
-    private byte ram;
+    private int ram;
     private int hdd;
     private String system;
     private String videocard;
     private String proc;
     private float rate;
 
-    public Notebook(byte ram, int hdd, String system,
+    public Notebook(int ram, int hdd, String system,
                      String videocard, String proc, float rate){
         this.ram = ram;
         this.hdd = hdd;
