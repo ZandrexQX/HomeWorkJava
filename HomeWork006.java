@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
 public class HomeWork006 {
     public static void main(String[] args) {
@@ -43,4 +44,47 @@ public class HomeWork006 {
 
         return listNotebooks;
     }
+
+    public static Notebook enterSort() {
+        Scanner sc = new Scanner(System.in);
+        int ram = 0;
+        int hdd = 0;
+        String system = null;
+        String videocard = null;
+        String proc = null;
+        float rate = 0;
+        int enter = Integer.parseInt(sc.nextLine());
+        while(enter != 0){
+            switch (enter) {
+                case 1:
+                    System.out.print("Введите минимальное ОЗУ:");
+                    ram = Integer.parseInt(sc.nextLine());
+                    break;
+                case 2:
+                    System.out.print("Введите минимальную емкость ЖД:");
+                    hdd = Integer.parseInt(sc.nextLine());
+                    break;
+                case 3:
+                    System.out.print("Введите операционную систему:");
+                    system = sc.nextLine();
+                    break;
+                case 4:
+                    System.out.print("Введите фирму видеокарты:");
+                    videocard = sc.nextLine();
+                    break;
+                case 5:
+                    System.out.print("Введите фирму процессора:");
+                    proc = sc.nextLine();
+                    break;
+                case 6:
+                    System.out.print("Введите минимальную частоту:");
+                    rate = Float.parseFloat(sc.nextLine());
+                    break;
+                default:
+                    break;
+            }
+        }
+        return new Notebook(ram, hdd, system, videocard, proc, rate);
+    }
+
 }
