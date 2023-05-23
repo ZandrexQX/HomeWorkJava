@@ -8,10 +8,9 @@ import java.util.Scanner;
 
 public class HomeWork006 {
     public static void main(String[] args) {
-        listNotebooks(10);
-        for (Notebook notebook : listNotebooks(10)) {
-            System.out.println(notebook);
-        }
+        List<Notebook> ln = listNotebooks(10);
+        printNotebook(ln);
+        printNotebook(sortNotebook(ln, enterSort()));
     }
 
     public static Notebook createNotebook() {
@@ -49,10 +48,19 @@ public class HomeWork006 {
         Scanner sc = new Scanner(System.in);
         int ram = 0;
         int hdd = 0;
-        String system = null;
-        String videocard = null;
-        String proc = null;
+        String system = "";
+        String videocard = "";
+        String proc = "";
         float rate = 0;
+        System.out.print("Введите параметры сортировки:\n"+
+                            "1: ОЗУ\n" + 
+                            "2: HDD\n" + 
+                            "3: Система (Windows, MacOS, Linux)\n" + 
+                            "4: Видеокарта (Nvidia, Radeon)\n" + 
+                            "5: Процессор(Intel, Amd)\n" + 
+                            "6: Частота\n" +
+                            "0: Выход из сортировки\n" + 
+                            "Ввод: ");
         int enter = Integer.parseInt(sc.nextLine());
         while(enter != 0){
             switch (enter) {
@@ -83,8 +91,63 @@ public class HomeWork006 {
                 default:
                     break;
             }
+            System.out.print("Введите параметры сортировки:\n"+
+                            "1: ОЗУ\n" + 
+                            "2: HDD\n" + 
+                            "3: Система (Windows, MacOS, Linux)\n" + 
+                            "4: Видеокарта (Nvidia, Radeon)\n" + 
+                            "5: Процессор(Intel, Amd)\n" + 
+                            "6: Частота\n" +
+                            "0: Выход из сортировки\n" + 
+                            "Ввод: ");
+            enter = Integer.parseInt(sc.nextLine());
         }
         return new Notebook(ram, hdd, system, videocard, proc, rate);
     }
 
+    public static List<Notebook> sortNotebook(List<Notebook> ln, Notebook sn) {
+        List<Notebook> resultList = new ArrayList<>();
+        for (Notebook notebook : ln) {
+            int count = 0;
+            if (notebook.getRam()>= sn.getRam()){
+                count++;
+            }
+            if (notebook.getHdd()>= sn.getHdd()){
+                count++;
+            }
+            if (sn.getSystem().equals("")){
+                count++;
+            }
+            else if (notebook.getSystem().equalsIgnoreCase(sn.getSystem())){
+                count++;
+            }
+            if (sn.getVideo().equals("")){
+                count++;
+            }
+            else if (notebook.getVideo().equalsIgnoreCase(sn.getVideo())){
+                count++;
+            }
+            if (sn.getProc().equals("")){
+                count++;
+            }
+            else if (notebook.getProc().equalsIgnoreCase(sn.getProc())){
+                count++;
+            }
+            if (notebook.getRate()>= sn.getRate()){
+                count++;
+            }
+            if (count == 6){
+                resultList.add(notebook);
+            }
+        }
+        System.out.println("Подходит ноутбуков: " + resultList.size());
+        return resultList;
+    }
+
+    public static void printNotebook(List<Notebook> ln) {
+        for (Notebook notebook : ln) {
+            System.out.println(notebook);
+            System.out.println();
+        }
+    }
 }

@@ -18,8 +18,28 @@ public class Notebook {
         this.rate = rate;
     }
 
+    public int getRam() {
+        return ram;
+    }
+
+    public int getHdd() {
+        return hdd;
+    }
+
     public String getSystem() {
         return system;
+    }
+
+    public String getVideo() {
+        return videocard;
+    }
+
+    public String getProc() {
+        return proc;
+    }
+
+    public float getRate() {
+        return rate;
     }
 
     @Override
